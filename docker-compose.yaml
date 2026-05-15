@@ -18,7 +18,7 @@ services:
     build: ./backend
     image: role_fortal_backend:dev
     container_name: artigos_opovo_fetcher
-    command: ["python", "fetch_opovo.py"]
+    command: ["python", "fetch_articles.py"]
     volumes:
       - data:/app/data
 

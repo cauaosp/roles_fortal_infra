@@ -15,7 +15,7 @@ spec:
       containers:
         - name: fetcher
           image: role_fortal_backend:dev
-          command: ["python", "fetch_opovo.py"]
+          command: ["python", "fetch_articles.py"]
           volumeMounts:
             - name: data-volume
               mountPath: /app/data
