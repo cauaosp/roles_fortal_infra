@@ -3,7 +3,7 @@ version: "3.9"
 services:
   backend:
     # build: ./backend
-    build: ../role_fortal
+    build: ./backend
     image: role_fortal_backend:dev
     container_name: artigos_opovo_backend
     command: ["python", "site.py"]
@@ -15,7 +15,7 @@ services:
 
   fetcher:
     # build: ./backend
-    build: ../role_fortal
+    build: ./backend
     image: role_fortal_backend:dev
     container_name: artigos_opovo_fetcher
     command: ["python", "fetch_opovo.py"]
@@ -24,7 +24,7 @@ services:
 
   frontend:
     # build: ./frontend/roles-fortal
-    build: ./roles_fortal_frontend/roles-fortal
+    build: ./frontend/roles-fortal
     image: role_fortal_frontend:dev
     container_name: artigos_opovo_frontend
     ports:
