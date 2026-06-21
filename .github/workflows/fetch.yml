@@ -1,0 +1,43 @@
+name: Atualizar Artigos
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "0 */12 * * *"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependências
+        run: |
+          pip install -r backend/requirements.txt
+
+      - name: Executar fetcher
+        run: |
+          cd backend
+          python fetch_articles.py
+
+      - name: Copiar json para pasta pública
+        run: |
+          cp backend/data/artigos.json public/artigos.json
+
+      - name: Commit
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          git add public/artigos.json
+          git commit -m "Atualiza artigos" || exit 0
+          git push
