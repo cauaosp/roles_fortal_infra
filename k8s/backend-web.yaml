@@ -14,14 +14,16 @@ spec:
     spec:
       containers:
         - name: backend
-          image: role_fortal_backend:dev
+          image: cauaosp/role-fortal-backend:latest
           imagePullPolicy: IfNotPresent
+          command:
+            - python
+            - site.py
           ports:
             - containerPort: 5001
           volumeMounts:
             - name: data-volume
               mountPath: /app/data
-
       volumes:
         - name: data-volume
           persistentVolumeClaim:
@@ -33,9 +35,11 @@ kind: Service
 metadata:
   name: backend
 spec:
+  type: NodePort
   selector:
     app: backend
   ports:
-    - port: 5001
+    - protocol: TCP
+      port: 5001
       targetPort: 5001
-  type: ClusterIP
+      nodePort: 30008

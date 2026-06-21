@@ -1,25 +1,25 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: batch/v1
+kind: CronJob
 metadata:
   name: fetcher
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: fetcher
-  template:
-    metadata:
-      labels:
-        app: fetcher
+  schedule: "0 */12 * * *"
+  jobTemplate:
     spec:
-      containers:
-        - name: fetcher
-          image: role_fortal_backend:dev
-          command: ["python", "fetch_articles.py"]
-          volumeMounts:
+      template:
+        spec:
+          containers:
+            - name: backend-fetcher
+              image: cauaosp/role-fortal-backend:v1.1
+              imagePullPolicy: IfNotPresent
+              volumeMounts:
+                - name: data-volume
+                  mountPath: /app/data
+              command:
+                - python
+                - fetch_articles.py
+          volumes:
             - name: data-volume
-              mountPath: /app/data
-      volumes:
-        - name: data-volume
-          persistentVolumeClaim:
-            claimName: data-pvc
+              persistentVolumeClaim:
+                claimName: data-pvc
+          restartPolicy: OnFailure
