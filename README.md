@@ -3,32 +3,44 @@
 
 ---
 
+### 📦 Como rodar
+#### ☸️ Com Kubernetes
+- Crie e rode um cluster local, usei o *Minikube*
+- Suba os pods e jobs aplicando os seguintes arquivos .yaml dentro da pasta "k8s/"
+```
+1 - kubectl apply -f pv.yaml
+2 - kubectl apply -f pvc.yaml
+3 - kubectl apply -f backend-fetcher.yaml
+4 - kubectl apply -f backend-web.yaml
+5 - kubectl apply -f frontend.yaml
+```
+Rode o comando: *minikube service frontend* para visualizar o Frontend do projeto.
+
+Verificar os pods rodando e outras informações: *kubectl get all*
+
+#### 🐋 Com Docker
+Rode os comandos na raiz do projeto:
+```
+1 - Docker compose build
+2 - Docker compose up
+```
+- Frontend acesso no *localhost:3000*
+- Backend acessa no *localhost:5001*
+
+---
+
 ### 🐋 Estrutura de contêineres 
 3 Contêineres:
 - **Backend-Fetcher**: faz a busca por conteúdo em loop a cada 5min e guarda em JSON num arquivo para o backend-web expôr
 - **Backend-Web**: consome o banco JSON e compartilha para outros contêineres via web 
 - **Frontend**: consome os dados do backend via web e centraliza o conteúdo para o usuário
 
-### ☸️ Deployment no kubernetes
+### ☸️ Configuração no kubernetes
 1) **backend-fetcher.yaml**: organiza o POD do fetcher e usa o PVC para persistência de dados. OBS: Devo transformá-lo em CronJob depois.
 2) **backend-web.yaml**: organiza o POD do web e consome os dados persistidos no PVC.
 3) **pvc.yaml**: solicita um armazenamento para realizar os serviços do backend.
 4) **pv.yaml**: cria o armazenamento compatível com pvc
 5) **frontend.yaml**: POD do FrontEnd.
-
----
-
-### 📦 Como rodar
-#### Precisa do kubectl baixado e o minikube rodando
-```
-1 - minikube start
-2 - eval $(minikube docker-env)
-3 - docker build -t roles_fortal_backend:dev backend/
-4 - docker build -t roles_fortal_frontend:dev frontend/roles-fortal/
-```
-Rode o comando: *minikube service frontend* para visualizar o Frontend do projeto.
-
-Verificar os pods rodando e outras informações: *kubectl get all*
 
 ---
 
