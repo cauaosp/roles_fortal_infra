@@ -1,10 +1,10 @@
 # Infraestrutura do Rolê Fortal 🌊 
-### Aplicativo idealizado para centralizar o que está ocorrendo em fortaleza.
+## Aplicativo idealizado para centralizar o que está ocorrendo em fortaleza.
 
 ---
 
-### 📦 Como rodar
-#### ☸️ Com Kubernetes
+## 📦 Como rodar
+### ☸️ Com Kubernetes
 - Crie e rode um cluster local, usei o *Minikube*
 - Suba os pods e jobs aplicando os seguintes arquivos .yaml dentro da pasta "k8s/"
 ```
@@ -18,8 +18,8 @@ Rode o comando: ```minikube service frontend``` para visualizar o Frontend do pr
 
 Verificar os pods rodando e outras informações: ```kubectl get all```
 
-#### 🐋 Com Docker
-Rode os comandos na raiz do projeto:
+### 🐋 Com Docker
+- Rode os comandos na raiz do projeto:
 ```
 1 - Docker compose build
 2 - Docker compose up
@@ -29,13 +29,13 @@ Rode os comandos na raiz do projeto:
 
 ---
 
-### 🐋 Estrutura de contêineres 
+## 🐋 Estrutura de contêineres 
 3 Contêineres:
 - **Backend-Fetcher**: faz a busca por conteúdo em loop a cada 5min e guarda em JSON num arquivo para o backend-web expôr
 - **Backend-Web**: consome o banco JSON e compartilha para outros contêineres via web 
 - **Frontend**: consome os dados do backend via web e centraliza o conteúdo para o usuário
 
-### ☸️ Configuração no kubernetes
+## ☸️ Arquivos yaml no kubernetes
 1) **backend-fetcher.yaml**: organiza o POD do fetcher e usa o PVC para persistência de dados. OBS: Devo transformá-lo em CronJob depois.
 2) **backend-web.yaml**: organiza o POD do web e consome os dados persistidos no PVC.
 3) **pvc.yaml**: solicita um armazenamento para realizar os serviços do backend.
