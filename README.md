@@ -14,9 +14,9 @@
 4 - kubectl apply -f backend-web.yaml
 5 - kubectl apply -f frontend.yaml
 ```
-Rode o comando: *minikube service frontend* para visualizar o Frontend do projeto.
+Rode o comando: ```minikube service frontend``` para visualizar o Frontend do projeto.
 
-Verificar os pods rodando e outras informações: *kubectl get all*
+Verificar os pods rodando e outras informações: ```kubectl get all```
 
 #### 🐋 Com Docker
 Rode os comandos na raiz do projeto:
@@ -24,8 +24,8 @@ Rode os comandos na raiz do projeto:
 1 - Docker compose build
 2 - Docker compose up
 ```
-- Frontend acesso no *localhost:3000*
-- Backend acessa no *localhost:5001*
+- Frontend acessa no ```localhost:3000```
+- Backend acessa no ```localhost:5001```
 
 ---
 
