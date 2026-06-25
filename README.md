@@ -55,14 +55,10 @@ Rode os comandos na raiz do projeto:
 ### 📰 Conteúdo centralizado
 #### Atual:
 - **O Povo**: É o **segundo maior** em circulação no estado e o mais antigo em funcionamento em Fortaleza, fundado em 1928.
-
-#### Vai ser adicionado:
 - **Diário do Nordeste**: É o jornal com a **maior tiragem** no Estado do Ceará, com forte cobertura em Fortaleza e região.
 - **O Estado**: Tradicional veículo com presença online e impressa, cobrindo política, economia e geral.
-- **G1 Ceará**: Portal de notícias vinculado à Rede Globo, com ampla cobertura estadual e capital.
+- **Verdes Mares**: Portal de notícias vinculado à Rede Globo, com ampla cobertura estadual e capital.
 - **GC+**: Portal do grupo R7, conhecido por suas seções de entretenimento, cultura e notícias policiais.
 - **Ceará Agora**: Veículo que foca em notícias "bombásticas" e últimos acontecimentos do estado.
 - **Tribuna do Ceará**: Um dos jornais mais tradicionais do estado, com atualizações diárias.
 - **Portal Terra da Luz**: Focado especificamente em informar os principais acontecimentos da cidade de Fortaleza.
-- **A Notícia do Ceará**: Site de últimas notícias completo e confiável para a região.
-- **Jornal do Brasil** (ou portais de notícias locais como o **GCMAIS**): Frequentemente citados em listas de mídia local para cobertura de eventos e política.
